@@ -1,0 +1,53 @@
+declare_args() {
+  is_debug = true
+}
+
+config("openssl_paths") {
+  cflags_cc = [ "-I/usr/local/opt/openssl/include" ]
+  ldflags = [ "-L/usr/local/opt/openssl/lib" ]
+}
+
+executable("client") {
+  sources = [ "src/client.cpp" ]
+
+  include_dirs = [ "third_party/asio/include" , "third_party/CLI11/include", "src" ]
+
+  defines = []
+  cflags_cc = [ "-DASIO_STANDALONE" ]
+  configs += [ ":openssl_paths" ]
+
+
+  if (is_debug) {
+    defines += [ "DEBUG" ]
+    cflags_cc += [
+      "-O0",
+    ]
+  } else {
+    defines += [ "NDEBUG" ]
+  }
+
+  libs = [ "ssl", "crypto" ]
+
+}
+
+if (is_debug) {
+  executable("websocket_tests") {
+    sources = [
+      "tests/websocket_test.cpp",
+      "third_party/Catch2/catch_amalgamated.cpp",
+    ]
+
+    include_dirs = [
+      "third_party/Catch2",
+      "third_party/asio/include",
+      "src",
+    ]
+
+    defines = [ "ASIO_STANDALONE" ]
+    cflags_cc = [ "-pthread" ]
+
+    # LINK OpenSSL for SSL
+    libs = [ "ssl", "crypto" ]
+  }
+
+}
