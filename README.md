@@ -55,25 +55,45 @@ The client can connect to public WebSocket echo servers, send messages, and rece
 ## Project Structure
 
 ├── build
+
 │   ├── BUILDCONFIG.gn
+
 │   ├── BUILD.gn
+
 │   └── toolchain
+
 │       └── BUILD.gn
+
 ├── BUILD.gn
+
 ├── .gn
+
 ├── src
+
 │   ├── client.cpp
+
 │   ├── TcpConnection.hpp
+
 │   ├── utils.hpp
+
 │   └── WebSocket.hpp
+
 ├── tests
+
 │   └── websocket_test.cpp
+
 └── third_party
+
     ├── asio
+    
     │   └── include
+    
     ├── Catch2
+    
     │   ├── catch_amalgamated.cpp
+    
     │   └── catch_amalgamated.hpp
+    
     └── CLI11
         └── include
 
