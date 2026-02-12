@@ -128,7 +128,9 @@ Each layer is intentionally separated to avoid mixing transport, protocol, and u
 
 Builds using is_debug and use_clang flags
 
-```gn gen out/debug --args='is_debug=true'```
+```
+gn gen out/debug --args='is_debug=true'
+```
 
 ```
 gn gen out/clang_debug --args='
@@ -137,7 +139,9 @@ use_clang=true
 '
 ```
 
-``` gn gen out/release ```
+``` 
+gn gen out/release
+```
 
 ```
 gn gen out/clang_release --args='use_clang=true'
