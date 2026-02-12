@@ -84,17 +84,17 @@ The client can connect to public WebSocket echo servers, send messages, and rece
 
 └── third_party
 
-    ├── asio
+  ├── asio
     
-    │   └── include
+  │   └── include
     
-    ├── Catch2
+  ├── Catch2
     
-    │   ├── catch_amalgamated.cpp
+  │   ├── catch_amalgamated.cpp
     
-    │   └── catch_amalgamated.hpp
+  │   └── catch_amalgamated.hpp
     
-    └── CLI11
+  └── CLI11
         └── include
 
 
@@ -128,7 +128,7 @@ Each layer is intentionally separated to avoid mixing transport, protocol, and u
 
 Builds using is_debug and use_clang flags
 
-`gn gen out/debug --args='is_debug=true'`
+```gn gen out/debug --args='is_debug=true'```
 
 ```
 gn gen out/clang_debug --args='
@@ -137,20 +137,20 @@ use_clang=true
 '
 ```
 
-` gn gen out/release `
+``` gn gen out/release ```
 
 ```
 gn gen out/clang_release --args='use_clang=true'
 ```
 
 ### Build
-`
+```
 ninja -C out/< directory >
-`
+```
 ### Running the client
-`
+```
 ./out/< directory >/client
-`
+```
 ## Design Decisions
 
 - No high-level WebSocket libraries were used to demonstrate protocol-level understanding.
